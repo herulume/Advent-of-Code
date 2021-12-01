@@ -71,7 +71,7 @@ func collapseBy(values []int, windowSize int) int {
 	var counter int
 	pipeline := filterLess(done, toWindow(done, values, windowSize))
 	for p := range pipeline {
-		_ = p //
+		_ = p 
 		counter++
 	}
 
@@ -83,10 +83,7 @@ func Day1Part1() (int, error) {
 	if err != nil {
 		return 0, err
 	}
-
-	done := make(chan interface{})
-	defer close(done)
-
+	
 	return collapseBy(values, 1), nil
 }
 
@@ -95,9 +92,6 @@ func Day1Part2() (int, error) {
 	if err != nil {
 		return 0, err
 	}
-
-	done := make(chan interface{})
-	defer close(done)
 
 	return collapseBy(values, 3), nil
 }
